@@ -1,18 +1,18 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from rest_framework import generics
 
-from .models import Users
-from .serializers import UsersSerializer
-
-
-class UserCreateAPIView(generics.CreateAPIView):
-    queryset = Users.objects.all()
-    serializer_class = UsersSerializer
+from .models import User
+from .serializers import UserSerializer
 
 
-class UserListAPIView(generics.ListAPIView):
-    queryset = Users.objects.all()
-    serializer_class = UsersSerializer
-    
+class UserCreateAPIView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    http_method_names = ['get', 'post', 'patch', 'delete']
+
+
+
+
+
+
 
